@@ -35,7 +35,7 @@ jobs:
             console.log(JSON.stringify(data));
           ")
 
-          curl -X POST https://art.dvad.my.id/api/v1/jobs \
+          curl -f -X POST https://art.dvad.my.id/api/v1/jos \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer ${{ secrets.AUTORESTTEST_API_KEY }}" \
             -d "$PAYLOAD"
