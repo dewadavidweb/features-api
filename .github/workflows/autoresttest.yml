@@ -22,7 +22,6 @@ jobs:
             echo "Error: Spec file not found at features.json"
             exit 1
           fi
-          # Use Node to read and stringify the JSON spec, which is more robust than using shell commands.
 
           PAYLOAD=$(node -e "
             const fs = require('fs');
@@ -35,7 +34,7 @@ jobs:
             console.log(JSON.stringify(data));
           ")
 
-          curl -f -X POST https://art.dvad.my.id/api/v1/jos \
+          curl -f -X POST https://art.dvad.my.id/api/v1/jobs \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer ${{ secrets.AUTORESTTEST_API_KEY }}" \
             -d "$PAYLOAD"
